@@ -11,7 +11,7 @@ import ContactForm from '../components/ContactForm';
 import HeroSlider from '../components/Hero1';
 import { Product } from '../models/Product';
 import { Blog } from '../models/Blog';
-import Category from '../models/category';
+import Category from '../models/Category';
 import Media from '../models/Media';
 
 import { DefaultSeo } from 'next-seo';
