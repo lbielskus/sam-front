@@ -28,23 +28,17 @@ const HeroSlider = ({ mediaData }) => {
   };
 
   return (
-    <section
-      className='hero-slider mx-auto px-4 sm:px-6 lg:px-4 py-12 bg-white rounded-2xl shadow-2xl'
-      style={{ width: '100%', height: '400px', position: 'relative' }}
-    >
-      <div
-        className='relative overflow-hidden'
-        style={{ width: '100%', height: '100%' }}
-      >
+    <section className='hero-slider mx-auto px-4 sm:px-6 lg:px-4 py-12 bg-white rounded-2xl shadow-2xl'>
+      <div className='relative overflow-hidden' style={{ height: '100%' }}>
         <div
           className='transition-transform duration-2000'
           style={{
             opacity: visibleHeroIndex === 0 ? 1 : 0,
-            width: '100%',
-            height: '100%',
             position: 'absolute',
             top: 0,
             left: 0,
+            width: '100%',
+            height: '100%',
           }}
         >
           <Hero1 mediaData={mediaData} />
@@ -53,11 +47,11 @@ const HeroSlider = ({ mediaData }) => {
           className='transition-transform duration-2000'
           style={{
             opacity: visibleHeroIndex === 1 ? 1 : 0,
-            width: '100%',
-            height: '100%',
             position: 'absolute',
             top: 0,
             left: 0,
+            width: '100%',
+            height: '100%',
           }}
         >
           <Hero2 mediaData={mediaData} />

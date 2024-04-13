@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import styles from '../styles/buttonStyles.module.scss';
+import styles from '../styles/products.module.css';
 
 const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -43,20 +43,22 @@ export default function Products({ products }) {
   };
 
   return (
-    <div className='bg-gray-100 rounded-2xl shadow-2xl '>
+    <div className='bg-gradient-to-r from-indigo-50 to-red-50 rounded-2xl shadow-2xl'>
       <div className='content-center py-10 max-w-screen-2xl'>
         <h2 className='text-2xl tracking-tight text-text text-center my-1'>
           Naujausios prekės
         </h2>
 
-        <div className='mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-1 lg:grid-cols-3 xl:gap-x-8'>
+        <div
+          className={`mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-1 lg:grid-cols-3 xl:gap-x-8  ${styles['center-products']}`}
+        >
           {products?.length > 0 &&
             products.map((product, index) => (
               <div
                 key={product._id}
-                className='group relative w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 mx-16'
+                className='group relative w-full sm:w-1/2 lg:w-1/2 xl:w-1/2'
               >
-                <div className='mx-auto mt-11 w-80 transform overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-50 to-red-50 dark:bg-gray-200 shadow-md duration-300 hover:scale-105 hover:shadow-lg border-2 border-button border-opacity-5 h-[450px] flex flex-col'>
+                <div className='xl:ml-[55px] 2xl:ml-[70px] mx-auto mt-11 w-80 transform overflow-hidden rounded-2xl bg-white  shadow-md duration-300 hover:scale-105 hover:shadow-lg border-2 border-button border-opacity-5 h-[450px] flex flex-col'>
                   <div className='relative'>
                     <Image
                       className='w-full h-[290px] object-cover object-center'
@@ -80,7 +82,7 @@ export default function Products({ products }) {
                         className='relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-white hover:text-border rounded-lg group bg-gradient-to-br from-third to-primary group-hover:from-third group-hover:to-primary hover:text-text2 dark:text-text2'
                         onClick={() => redirectToPost(product._id)}
                       >
-                        <span className='relative px-5 py-2.5 transition-all ease-in duration-75 bg-button dark:bg-button rounded-md border-2 border-button hover:border-2 hover:bg-white hover:text-button '>
+                        <span className='relative px-5 py-2.5 transition-all ease-in duration-75 bg-button dark:bg-button rounded-md border-2 border-button hover:border-2 hover:bg-white hover:text-button'>
                           Plačiau
                         </span>
                       </button>

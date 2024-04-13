@@ -6,7 +6,7 @@ export default async function handle(req, res) {
 
   try {
     if (req.method === 'GET') {
-      const categories = await Category.find().populate('parent');
+      const categories = await Category.find().populate('parent').lean();
       res.json(categories);
     } else {
       res.status(405).json({ error: 'Method Not Allowed' });

@@ -1,6 +1,6 @@
 import { mongooseConnect } from '../../lib/mongoose';
 import Categories from '../../components/Categories';
-import Category from '../../models/Category';
+import CategoryModel from '../../models/Category';
 
 export default function CategoriesPage({ categories }) {
   return (
@@ -13,7 +13,7 @@ export default function CategoriesPage({ categories }) {
 export async function getServerSideProps() {
   await mongooseConnect();
 
-  const categories = await Category.find().lean().exec();
+  const categories = await CategoryModel.find().lean().exec();
 
   if (!categories) {
     return {

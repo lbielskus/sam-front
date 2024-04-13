@@ -3,12 +3,12 @@ import Image from 'next/image';
 
 const MumisPasitiki = () => {
   return (
-    <section className='py-10 bg-gradient-to-r from-indigo-50 to-red-75 rounded-2xl  shadow-2xl'>
+    <section className='py-10 bg-gradient-to-r from-indigo-50 to-red-75 rounded-2xl shadow-2xl'>
       <div className='container mx-auto'>
         <h2 className='text-xl text-center font-semibold text-gray-700 mb-8 opacity-90'>
-          MUMIS PASITIKI:
+          Partneriai:
         </h2>
-        <div className='flex justify-center items-center space-x-80'>
+        <div className='flex flex-col items-center space-y-8 sm:space-y-0 sm:flex-row sm:justify-center sm:space-x-4'>
           <Image
             src='/roto_attivo_logo.png'
             alt='Logo 1'

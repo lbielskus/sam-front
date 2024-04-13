@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { mongooseConnect } from '../../lib/mongoose';
 import { Product } from '../../models/Product';
+import CategoryModel from '../../models/Category';
 
 import styles from '../../styles/buttonStyles.module.scss';
 
@@ -105,7 +106,7 @@ export default function Products({ allProducts }) {
   };
 
   return (
-    <div className='flex justify-center min-h-screen bg-gray-100 rounded-2xl mt-5'>
+    <div className='flex justify-center min-h-screen bg-gradient-to-r from-indigo-50 to-red-50 rounded-2xl mt-5'>
       {loading ? (
         <div className='flex justify-center items-center min-h-screen w-full '>
           <Spinner />
@@ -205,7 +206,7 @@ export default function Products({ allProducts }) {
                 {currentProducts.map((product, index) => (
                   <div key={product._id} className='flex justify-center'>
                     <div className='rounded-xl group relative w-full'>
-                      <div className='group block overflow-hidden border-2 border-button border-opacity-20 bg-gradient-to-r from-indigo-50 to-red-50 rounded-xl w-[340px] h-[580px]'>
+                      <div className='group block overflow-hidden border-2 border-button border-opacity-20 bg-white rounded-xl w-[340px] h-[580px]'>
                         <div className='p-1'>
                           <div className='relative h-[400px] sm:h-[400px]'>
                             {product.images.map((image, imgIndex) => (
@@ -351,17 +352,52 @@ export default function Products({ allProducts }) {
   );
 }
 
-export async function getServerSideProps({ query }) {
-  const searchQuery = query.search || '';
+export async function getServerSideProps({ query, params = {} }) {
   await mongooseConnect();
-  let allProducts;
+  const { category } = params;
+  const searchQuery = query.search || '';
 
-  if (searchQuery !== '') {
-    allProducts = await Product.find({
-      title: { $regex: new RegExp(searchQuery, 'i') },
-    }).sort({ _id: 1 });
+  let allProducts;
+  let categoryName = null;
+  let categories = [];
+
+  try {
+    const categoriesData = await CategoryModel.find().lean().exec();
+    categories = categoriesData.map((category) => ({
+      _id: category._id.toString(),
+      name: category.name,
+    }));
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+  }
+
+  if (category) {
+    let categoryData;
+
+    const isObjectId = /^[0-9a-fA-F]{24}$/.test(category);
+
+    if (isObjectId) {
+      categoryData = await CategoryModel.findById(category);
+    } else {
+      categoryData = await CategoryModel.findOne({ name: category });
+    }
+
+    if (categoryData) {
+      categoryName = categoryData.name;
+      allProducts = await Product.find({ category: categoryData._id });
+    } else {
+      return {
+        notFound: true,
+      };
+    }
   } else {
-    allProducts = await Product.find({}, null, { sort: { _id: 1 } });
+    if (searchQuery !== '') {
+      allProducts = await Product.find({
+        title: { $regex: new RegExp(searchQuery, 'i') },
+      }).sort({ _id: 1 });
+    } else {
+      allProducts = await Product.find({}, null, { sort: { _id: 1 } });
+    }
   }
 
   const productsWithIndexes = allProducts.map((product) => ({
@@ -372,6 +408,9 @@ export async function getServerSideProps({ query }) {
   return {
     props: {
       allProducts: JSON.parse(JSON.stringify(productsWithIndexes)),
+
+      categoryName: categoryName,
+      categories: categories,
     },
   };
 }

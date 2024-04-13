@@ -2,12 +2,14 @@ import { useRouter } from 'next/router';
 import { FiPhone } from 'react-icons/fi';
 import { useState } from 'react';
 
+import styles from '../styles/contactbutton.module.css';
+
 const ContactButton = () => {
   const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
-    router.push('/contact');
+    router.push('/kontaktai');
   };
 
   return (
@@ -23,7 +25,7 @@ const ContactButton = () => {
           </span>
         )}
         <button
-          className='bg-green-700 hover:bg-green-600 border-2 border-white text-white flex items-center justify-center w-16 h-16 rounded-full shadow-md'
+          className={`bg-green-600 hover:bg-green-500 border border-white text-white flex items-center justify-center w-16 h-16 rounded-full shadow-md  ${styles['button-mobile']}`}
           onClick={handleClick}
         >
           <FiPhone size={32} />

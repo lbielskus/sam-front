@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const Categories = ({ categories }) => {
   return (
-    <section className='mx-auto px-4 sm:px-6 lg:px-4 py-12 bg-white rounded-2xl shadow-2xl'>
+    <section className='mx-auto px-4 sm:px-6 lg:px-4 py-12 bg-gradient-to-r from-indigo-50 to-red-100 rounded-2xl shadow-2xl'>
       <h2 className='text-2xl tracking-tight text-text text-center my-5'>
         Kategorijos
       </h2>

@@ -22,7 +22,7 @@ const BlogSlide = ({ posts }) => {
   };
 
   const redirectToPost = (postId) => {
-    window.location.href = `/blog/${postId}`;
+    window.location.href = `/straipsniai/${postId}`;
   };
 
   return (
@@ -40,7 +40,7 @@ const BlogSlide = ({ posts }) => {
                 </p>
                 <div className='flex items-center flex-wrap'>
                   <button className='h-[40px] text-white bg-button dark:bg-button border-2 border-button hover:border-2 hover:bg-white hover:text-button drop-shadow-md  px-4 py-1 rounded-lg'>
-                    <Link href={`/blog/${posts[currentPostIndex]._id}`}>
+                    <Link href={`/straipsniai/${posts[currentPostIndex]._id}`}>
                       Skaityti plačiau
                     </Link>
                   </button>

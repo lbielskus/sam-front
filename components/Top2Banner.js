@@ -1,11 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { FaPhone, FaEnvelope } from 'react-icons/fa';
+import styles from '../styles/topbanner2.module.css';
 
 const Top2Banner = () => {
   return (
     <div className='flex justify-between items-center bg-gray-100 p-4 h-14 border-b border-opacity-50 border-gray-500 pr-[60px]'>
-      <div className='flex items-center space-x-4'>
+      <div
+        className={`${styles['center-contact']} flex items-center space-x-4`}
+      >
         <div className='flex items-center space-x-2'>
           <FaPhone className='text-gray-700' />
           <span className='text-gray-700'>+37065059050</span>
@@ -16,27 +19,27 @@ const Top2Banner = () => {
         </div>
       </div>
 
-      <div className='flex items-center space-x-4'>
+      <div className={`${styles['hide-links']} flex items-center space-x-4`}>
         <span>
-          <Link href='/about-us'>
+          <Link href='/sub/apie-mus'>
             <span className='text-gray-700 cursor-pointer'>Apie mus</span>
           </Link>
         </span>
         <span className='text-gray-700'> \ </span>
         <span>
-          <Link href='/contact'>
+          <Link href='/kontaktai'>
             <span className='text-gray-700 cursor-pointer'>Kontaktai</span>
           </Link>
         </span>
         <span className='text-gray-700'> \ </span>
         <span>
-          <Link href='/blog'>
+          <Link href='/straipsniai'>
             <span className='text-gray-700 cursor-pointer'>Tinklaraštis</span>
           </Link>
         </span>
         <span className='text-gray-700'> \ </span>
         <span>
-          <Link href='/partners'>
+          <Link href='/partneriams'>
             <span className='text-gray-700 cursor-pointer'>Partneriams</span>
           </Link>
         </span>

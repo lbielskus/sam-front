@@ -11,7 +11,7 @@ import ContactForm from '../components/ContactForm';
 import HeroSlider from '../components/Hero1';
 import { Product } from '../models/Product';
 import { Blog } from '../models/Blog';
-import Category from '../models/Category';
+import CategoryModel from '../models/Category';
 import Media from '../models/Media';
 
 import { DefaultSeo } from 'next-seo';
@@ -95,7 +95,7 @@ export async function getServerSideProps() {
     },
   });
 
-  const categories = await Category.find().lean().exec();
+  const categories = await CategoryModel.find().lean().exec();
 
   const categoriesWithStrings = categories.map((category) => ({
     ...category,

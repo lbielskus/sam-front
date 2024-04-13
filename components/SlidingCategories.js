@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import styles from '../styles/slidingcategories.module.css';
 
 import {
   BsFillArrowLeftCircleFill,
@@ -43,15 +44,17 @@ const SlidingCategories = ({ categories }) => {
   };
 
   return (
-    <section className=' mx-auto px-4 sm:px-6 lg:px-4 py-12 bg-white rounded-2xl shadow-2xl'>
+    <section className=' mx-auto px-4 sm:px-6 lg:px-4 py-12 bg-gradient-to-r from-indigo-50 to-red-50 rounded-2xl shadow-2xl'>
       <h2 className='text-2xl tracking-tight text-text text-center my-5'>
         Kategorijos
       </h2>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+      <div
+        className={`${styles['center-categories']} grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 ml-6`}
+      >
         {visibleCategories.map((category, index) => (
           <div key={`${category._id}-${index}`} className='relative'>
-            <div className='max-w-[26rem] flex flex-col rounded-xl bg-gradient-to-r from-indigo-50 to-red-50 bg-clip-border text-gray-700 shadow-lg'>
-              <div className='relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 max-h-[250px] min-h-[250px]'>
+            <div className='w-full max-w-[26rem] min-w-[18rem] flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg h-[450px]'>
+              <div className='relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40'>
                 {category.images && category.images.length > 0 ? (
                   <Image
                     src={category.images[0]}
@@ -73,7 +76,7 @@ const SlidingCategories = ({ categories }) => {
                 )}
                 <div className='to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60'></div>
               </div>
-              <div className='p-6 flex flex-col justify-center '>
+              <div className='p-6 flex flex-col justify-center h-[250px] lg:h-[150px]'>
                 <h5 className='text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased text-center pt-[35px] pb-[35px]'>
                   {category.name}
                 </h5>

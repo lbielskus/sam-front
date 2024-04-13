@@ -152,9 +152,11 @@ export default function CategoryPage({ products, categoryName }) {
               </div>
             ))
           ) : (
-            <p className='text-center text-gray-600'>
-              No products found in this category.
-            </p>
+            <div className='col-span-3 h-40 pt-11'>
+              <p className='text-center text-gray-600'>
+                Šioje kategorijoje produktų nėra.
+              </p>
+            </div>
           )}
         </div>
       </div>
@@ -228,7 +230,6 @@ export default function CategoryPage({ products, categoryName }) {
     </div>
   );
 }
-
 export async function getServerSideProps({ params }) {
   await mongooseConnect();
   const { category } = params;
@@ -249,10 +250,19 @@ export async function getServerSideProps({ params }) {
 
     const products = await Product.find({ category: categoryData._id });
 
+    const categories = await CategoryModel.find().lean().exec();
+    const categoriesWithStrings = categories.map((category) => ({
+      ...category,
+      _id: category._id.toString(),
+      parent: category.parent ? category.parent.toString() : null,
+    }));
+
     return {
       props: {
         products: JSON.parse(JSON.stringify(products)),
         categoryName: categoryName,
+
+        categories: categoriesWithStrings,
       },
     };
   } else {
