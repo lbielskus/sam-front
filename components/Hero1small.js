@@ -49,6 +49,7 @@ const Hero1small = () => {
                   height={164}
                   objectFit='contain'
                   objectPosition='right'
+                  loading='lazy'
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
