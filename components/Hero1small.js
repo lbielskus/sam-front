@@ -50,6 +50,8 @@ const Hero1small = () => {
                   objectFit='contain'
                   objectPosition='right'
                   loading='lazy'
+                  placeholder='blur'
+                  blurDataURL='/placeholder.png'
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
