@@ -40,13 +40,13 @@ const Hero1small = () => {
         >
           {media.firstBanner && index === startIndex && (
             <>
-              <div className='w-full h-[260px] sm:w-[400px] mx-auto'>
+              <div className='w-full h-[200px] sm:w-[400px] mx-auto'>
                 <Image
                   src={media.images[0]}
                   alt={media.name}
                   layout='responsive'
-                  width={400}
-                  height={300}
+                  width={326}
+                  height={164}
                   objectFit='contain'
                   objectPosition='right'
                   onError={(e) => {
