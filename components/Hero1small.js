@@ -6,6 +6,7 @@ const Hero1small = () => {
   const [visibleMedia, setVisibleMedia] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const router = useRouter();
+  const MyBlurDataUrl = '/placeholder.png';
 
   useEffect(() => {
     const fetchMediaData = async () => {
@@ -51,7 +52,7 @@ const Hero1small = () => {
                   objectPosition='right'
                   loading='lazy'
                   placeholder='blur'
-                  blurDataURL='/placeholder.png'
+                  blurDataURL={MyBlurDataUrl}
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
