@@ -11,11 +11,11 @@ const Top2Banner = () => {
       >
         <div className='flex items-center space-x-2'>
           <FaPhone className='text-gray-700' />
-          <span className='text-gray-700'>+37065059050</span>
+          <span className='text-gray-700'>+37060196674</span>
         </div>
         <div className='flex items-center space-x-2'>
           <FaEnvelope className='text-gray-700' />
-          <span className='text-gray-700'>info@info.lt</span>
+          <span className='text-gray-700'>info@irkluoju.lt</span>
         </div>
       </div>
 
@@ -39,7 +39,7 @@ const Top2Banner = () => {
         </span>
         <span className='text-gray-700'> \ </span>
         <span>
-          <Link href='/partneriams'>
+          <Link href='/kontaktai'>
             <span className='text-gray-700 cursor-pointer'>Partneriams</span>
           </Link>
         </span>

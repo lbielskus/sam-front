@@ -12,8 +12,6 @@ const Footer = () => {
   const [socialLinks, setSocialLinks] = useState({
     facebook: 'https://www.facebook.com/',
     instagram: 'https://www.instagram.com/',
-    linkedin: 'https://www.linkedin.com/',
-    tiktok: 'https://www.tiktok.com/explore',
   });
 
   const handleIconClick = (link) => {
@@ -34,11 +32,11 @@ const Footer = () => {
               <div
                 className={`flex flex-col mb-2 ${styles['footer-links-padd']}`}
               >
-                <p>UAB &quot;Vandens Talpos&quot;</p>
-                <p>Gatves g. 17</p>
-                <p>LT-47123</p>
+                <p>UAB &quot;Ekologiniai projektai&quot;</p>
+                <p>Geležinio Vilko g. 4-55</p>
+                <p>LT-49279</p>
                 <p>Kaunas</p>
-                <p>Tel.: +370 12345678</p>
+                <p>Tel.: +370 601 96674</p>
               </div>
             </div>
           </div>
@@ -71,7 +69,7 @@ const Footer = () => {
               <div
                 className={`flex flex-col mb-2  ${styles['footer-links-padd']}`}
               >
-                <Link href='/partneriams' className='flex items-center'>
+                <Link href='/kontaktai' className='flex items-center'>
                   <MdArrowForward />
                   <span className='ml-2'>Prisijungimas partneriams</span>
                 </Link>

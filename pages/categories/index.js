@@ -2,11 +2,38 @@ import { mongooseConnect } from '../../lib/mongoose';
 import Categories from '../../components/Categories';
 import CategoryModel from '../../models/Category';
 
+import { NextSeo } from 'next-seo';
+
 export default function CategoriesPage({ categories }) {
   return (
-    <div>
-      <Categories categories={categories} />
-    </div>
+    <>
+      <NextSeo
+        title='Kategorijos'
+        description='Kategorijos'
+        openGraph={{
+          type: 'website',
+          locale: 'en_IE',
+          url: 'https://yourwebsite.com/',
+          site_name: 'Vandens Talpos',
+          images: [
+            {
+              url: 'https://res.cloudinary.com/dtv9ufmel/image/upload/v1712755967/ecommerce-app/nkdyueoqvtwbc215unry.png',
+              width: 1200,
+              height: 630,
+              alt: 'Roto image',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@handle',
+          site: '@site',
+          cardType: 'summary_large_image',
+        }}
+      />
+      <div>
+        <Categories categories={categories} />
+      </div>
+    </>
   );
 }
 

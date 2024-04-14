@@ -5,6 +5,8 @@ import { mongooseConnect } from '../lib/mongoose';
 import { useRouter } from 'next/router';
 import CategoryModel from '../models/Category';
 
+import { NextSeo } from 'next-seo';
+
 const ContactPage = () => {
   const [loading, setLoading] = useState(true);
 
@@ -15,18 +17,42 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <div className='container mx-auto mt-8'>
-      {loading ? (
-        <div className='flex justify-center items-center min-h-screen'>
-          <Spinner />
-        </div>
-      ) : (
-        <>
-          <h1 className='text-xl  mb-6 text-text text-center'>Susisiekite!</h1>
-          <ContactForm />
-        </>
-      )}
-    </div>
+    <>
+      <NextSeo
+        title='Kontaktai'
+        description='Kontaktai'
+        openGraph={{
+          type: 'website',
+          locale: 'en_IE',
+          url: 'https://yourwebsite.com/',
+          site_name: 'Vandens Talpos',
+          images: [
+            {
+              url: 'https://res.cloudinary.com/dtv9ufmel/image/upload/v1712755967/ecommerce-app/nkdyueoqvtwbc215unry.png',
+              width: 1200,
+              height: 630,
+              alt: 'Roto image',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@handle',
+          site: '@site',
+          cardType: 'summary_large_image',
+        }}
+      />
+      <div className='container mx-auto mt-8'>
+        {loading ? (
+          <div className='flex justify-center items-center min-h-screen'>
+            <Spinner />
+          </div>
+        ) : (
+          <>
+            <ContactForm />
+          </>
+        )}
+      </div>
+    </>
   );
 };
 

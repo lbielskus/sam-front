@@ -8,11 +8,11 @@ const MumisPasitiki = () => {
         <h2 className='text-xl text-center font-semibold text-gray-700 mb-8 opacity-90'>
           Partneriai:
         </h2>
-        <div className='flex flex-col items-center space-y-8 sm:space-y-0 sm:flex-row sm:justify-center sm:space-x-4'>
+        <div className='flex flex-col items-center space-y-8 sm:space-y-0 sm:flex-row sm:justify-center sm:space-x-4 gap-12'>
           <Image
             src='/roto_attivo_logo.png'
             alt='Logo 1'
-            width={190}
+            width={200}
             height={70}
             className='h-16 opacity-80'
             layout='fixed'

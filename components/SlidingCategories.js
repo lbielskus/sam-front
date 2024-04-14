@@ -26,11 +26,13 @@ const SlidingCategories = ({ categories }) => {
       }
     }
 
-    const interval = setInterval(() => {
-      setStartIndex((prevIndex) => (prevIndex + 1) % categories.length);
-    }, 4500);
+    if (window.innerWidth > 768) {
+      const interval = setInterval(() => {
+        setStartIndex((prevIndex) => (prevIndex + 1) % categories.length);
+      }, 4500);
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   }, [categories, startIndex]);
 
   const handlePrevClick = () => {
@@ -53,7 +55,7 @@ const SlidingCategories = ({ categories }) => {
       >
         {visibleCategories.map((category, index) => (
           <div key={`${category._id}-${index}`} className='relative'>
-            <div className='w-full max-w-[26rem] min-w-[18rem] flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg h-[450px]'>
+            <div className='w-full max-w-[26rem] min-w-[18rem] flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg h-[380px] md:h-[450px] lg:h-[450px] xl:h-[450px]'>
               <div className='relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40'>
                 {category.images && category.images.length > 0 ? (
                   <Image
@@ -74,9 +76,8 @@ const SlidingCategories = ({ categories }) => {
                     layout='responsive'
                   />
                 )}
-                <div className='to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60'></div>
               </div>
-              <div className='p-6 flex flex-col justify-center h-[250px] lg:h-[150px]'>
+              <div className='p-6 flex flex-col justify-center h-[150px] lg:h-[150px]'>
                 <h5 className='text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased text-center pt-[35px] pb-[35px]'>
                   {category.name}
                 </h5>

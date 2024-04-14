@@ -30,7 +30,7 @@ export default function Home({
   return (
     <main className='h-full p-4 bg-background'>
       <DefaultSeo
-        title='VandensTalpos.lt'
+        title='VandensTalpos.lt / Pagrindinis'
         description='Išskirtiniai plastikiniai gaminiai namams ir sodui'
         openGraph={{
           type: 'website',
