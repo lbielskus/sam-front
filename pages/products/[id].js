@@ -82,10 +82,10 @@ export default function ProductPage({ product }) {
             site_name: 'Vandens Talpos',
             images: [
               {
-                url: 'https://res.cloudinary.com/dtv9ufmel/image/upload/v1712755967/ecommerce-app/nkdyueoqvtwbc215unry.png',
+                url: product.images[currentImageIndex],
                 width: 1200,
                 height: 630,
-                alt: 'Roto image',
+                alt: 'Product image',
               },
             ],
           }}

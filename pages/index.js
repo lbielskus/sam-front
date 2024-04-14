@@ -8,7 +8,7 @@ import SlidingCategories from '../components/SlidingCategories';
 import MumisPasitiki from '../components/MumisPasitiki';
 import IconCards from '../components/IconCards';
 import ContactForm from '../components/ContactForm';
-import HeroSlider from '../components/Hero1';
+import Hero1 from '../components/Hero1';
 import { Product } from '../models/Product';
 import { Blog } from '../models/Blog';
 import CategoryModel from '../models/Category';
@@ -53,7 +53,7 @@ export default function Home({
         }}
       />
       <hr className='my-5 h-px border-0 bg-gray-300 ' />
-      <HeroSlider mediaData={mediaData} />
+      <Hero1 mediaData={mediaData} />
       <hr className='my-5 h-px border-0 bg-gray-300 ' />
       <IconCards />
       <hr className='my-5 h-px border-0 bg-gray-300 ' />
