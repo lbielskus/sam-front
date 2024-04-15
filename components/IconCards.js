@@ -34,7 +34,7 @@ const ServicesCards = () => {
 const Card = ({ title, icon }) => {
   return (
     <div className='bg-white rounded-2xl p-6 h-200 flex flex-col items-center justify-center shadow-2xl w-[200px] md:w-[200px] lg:w-[250px] xl:w-[250px] mx-auto'>
-      <div className='icon-container text-6xl text-button'>{icon}</div>
+      <div className='icon-container w-16 h-16 text-center'>{icon}</div>
 
       <button className='h-15 mt-11 bg-button text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors'>
         {title}
