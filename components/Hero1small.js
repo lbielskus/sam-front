@@ -41,7 +41,7 @@ const Hero1small = () => {
             <>
               <div className='w-full h-[200px] sm:w-[400px] mx-auto'>
                 <Image
-                  src={media.images[0]}
+                  src='https://res.cloudinary.com/dtv9ufmel/image/upload/v1713120176/ecommerce-app/file_1713120176508.webp'
                   alt={media.name}
                   layout='responsive'
                   width={326}
