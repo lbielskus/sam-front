@@ -61,11 +61,7 @@ export default function Products({ products }) {
                 <div className='xl:ml-[55px] 2xl:ml-[70px] mx-auto mt-11 w-80 transform overflow-hidden rounded-2xl bg-white  shadow-md duration-300 hover:shadow-lg border-2 border-button border-opacity-5 h-[450px] flex flex-col'>
                   <div className='relative'>
                     <Image
-                      className={`w-full h-[290px] object-cover object-center ${
-                        typeof window !== 'undefined' && window.innerWidth > 768
-                          ? 'hover:scale-105'
-                          : ''
-                      }`}
+                      className='w-full h-[290px] object-cover object-center'
                       src={product.images[currentImageIndexes[index]]}
                       alt='Product Image'
                       width={300}

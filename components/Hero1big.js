@@ -18,7 +18,6 @@ const Hero1big = () => {
 
         const filteredData = data.filter((media) => media.firstBanner);
         setVisibleMedia(filteredData);
-        console.log(filteredData);
       } catch (error) {
         console.error('Error fetching media data:', error);
       }

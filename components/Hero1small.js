@@ -6,7 +6,6 @@ const Hero1small = () => {
   const [visibleMedia, setVisibleMedia] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const router = useRouter();
-  const MyBlurDataUrl = '/placeholder.png';
 
   useEffect(() => {
     const fetchMediaData = async () => {
@@ -19,7 +18,6 @@ const Hero1small = () => {
 
         const filteredData = data.filter((media) => media.firstBanner);
         setVisibleMedia(filteredData);
-        console.log(filteredData);
       } catch (error) {
         console.error('Error fetching media data:', error);
       }
@@ -52,7 +50,7 @@ const Hero1small = () => {
                   objectPosition='right'
                   loading='lazy'
                   placeholder='blur'
-                  blurDataURL={MyBlurDataUrl}
+                  blurDataURL='https://res.cloudinary.com/dtv9ufmel/image/upload/v1713120176/ecommerce-app/file_1713120176508.webp'
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
