@@ -13,14 +13,10 @@ export default class MyDocument extends Document {
 
           <link rel='preload' href='/styles/globals.css' as='style' />
 
+          <link rel='preload' href='/.next/static/chunks/main.js' as='script' />
           <link
             rel='preload'
-            href='/__next/static/chunks/main.js'
-            as='script'
-          />
-          <link
-            rel='preload'
-            href='/__next/static/chunks/webpack.js'
+            href='/.next/static/chunks/webpack.js'
             as='script'
           />
         </Head>
