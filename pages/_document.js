@@ -6,8 +6,22 @@ export default class MyDocument extends Document {
       <Html lang='en'>
         <Head>
           <link
+            rel='preload'
             href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'
-            rel='stylesheet'
+            as='style'
+          />
+
+          <link rel='preload' href='/styles/globals.css' as='style' />
+
+          <link
+            rel='preload'
+            href='/__next/static/chunks/main.js'
+            as='script'
+          />
+          <link
+            rel='preload'
+            href='/__next/static/chunks/webpack.js'
+            as='script'
           />
         </Head>
         <body>

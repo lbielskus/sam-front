@@ -46,6 +46,7 @@ const Hero1small = () => {
                   layout='responsive'
                   width={326}
                   height={164}
+                  loading='lazy'
                   objectFit='contain'
                   objectPosition='right'
                   placeholder='blur'
