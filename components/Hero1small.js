@@ -48,7 +48,6 @@ const Hero1small = () => {
                   height={164}
                   objectFit='contain'
                   objectPosition='right'
-                  loading='lazy'
                   placeholder='blur'
                   blurDataURL='https://res.cloudinary.com/dtv9ufmel/image/upload/v1713120176/ecommerce-app/file_1713120176508.webp'
                   onError={(e) => {
