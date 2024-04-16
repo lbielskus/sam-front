@@ -32,7 +32,7 @@ export default function Header({
     return categories.map((category) => (
       <li key={category._id}>
         <Link href={`/categories/${category._id}`}>
-          <div className='text-gray-800 hover:text-primary cursor-pointer'>
+          <div className='text-gray-800 hover:text-primary cursor-pointer py-1'>
             {category.name}
           </div>
         </Link>
@@ -60,10 +60,7 @@ export default function Header({
     <>
       <header className='bg-gray-100 sticky top-0 z-40 w-full px-2 lg:px-4 rounded-b-2xl shadow-xl'>
         <div className='mx-auto flex h-16 max-w-screen-2xl items-center justify-between border-b border-primary border-opacity-40 bg-third text-gray-700'>
-          <div
-            className={`relative ${styles['center-kategorijos']}`}
-            style={{ width: '186px' }}
-          >
+          <div className={`relative ${styles['center-kategorijos']}`}>
             <button
               onClick={toggleCategories}
               className='text-white font-small text-md hover:bg-hover3 rounded-md h-10 bg-button flex items-center justify-center'
@@ -74,7 +71,7 @@ export default function Header({
               {showCategories ? <FiChevronDown className='ml-1' /> : null}
             </button>
             {showCategories && categories && categories.length > 0 && (
-              <div className='absolute left-0 top-full mt-1 bg-gray-300 p-2 rounded shadow-md'>
+              <div className='absolute left-1/2 transform -translate-x-1/2 top-full  mt-1 bg-gray-100 rounded shadow-md text-center w-[220px]'>
                 <ul>{renderCategories(categories)}</ul>
               </div>
             )}

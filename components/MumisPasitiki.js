@@ -18,7 +18,7 @@ const MumisPasitiki = () => {
             layout='fixed'
           />
           <Image
-            src='/delsyk-logo.png'
+            src='/delsyk_logo.png'
             alt='Logo 2'
             width={180}
             height={70}

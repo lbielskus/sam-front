@@ -4,6 +4,7 @@ import CategoryModel from '../../models/Category';
 import { mongooseConnect } from '../../lib/mongoose';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import mongoose from 'mongoose';
 
 import { NextSeo } from 'next-seo';
 
@@ -259,8 +260,25 @@ export default function CategoryPage({ products, categoryName }) {
     </>
   );
 }
+
+async function getCategoryIds(categoryId) {
+  const category = await CategoryModel.findById(categoryId);
+  if (!category) return [];
+
+  let categoryIds = [categoryId];
+
+  const subcategories = await CategoryModel.find({ parent: categoryId });
+  for (const subcategory of subcategories) {
+    const subcategoryIds = await getCategoryIds(subcategory._id);
+    categoryIds = [...categoryIds, ...subcategoryIds];
+  }
+
+  return categoryIds;
+}
+
 export async function getServerSideProps({ params }) {
-  await mongooseConnect();
+  await mongoose.connect(process.env.MONGODB_URI);
+
   const { category } = params;
 
   let categoryData;
@@ -277,7 +295,14 @@ export async function getServerSideProps({ params }) {
   if (categoryData) {
     categoryName = categoryData.name;
 
-    const products = await Product.find({ category: categoryData._id });
+    let products;
+
+    if (categoryName === 'Visos prekės') {
+      products = await Product.find({});
+    } else {
+      const categoryIds = await getCategoryIds(categoryData._id);
+      products = await Product.find({ category: { $in: categoryIds } });
+    }
 
     const categories = await CategoryModel.find().lean().exec();
     const categoriesWithStrings = categories.map((category) => ({
@@ -290,7 +315,6 @@ export async function getServerSideProps({ params }) {
       props: {
         products: JSON.parse(JSON.stringify(products)),
         categoryName: categoryName,
-
         categories: categoriesWithStrings,
       },
     };
