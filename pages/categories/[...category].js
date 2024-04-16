@@ -13,6 +13,10 @@ export default function CategoryPage({ products, categoryName }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(9);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [router.query.category]);
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products

@@ -149,7 +149,7 @@ export default function ProductPage({ product }) {
               <button
                 className='bg-button text-white py-2 px-4 rounded-md hover:bg-button-dark w-[192px]'
                 onClick={() => {
-                  router.push('/contact');
+                  router.push('/kontaktai');
                 }}
               >
                 Pateikti užklausą
